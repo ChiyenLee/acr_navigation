@@ -7,6 +7,6 @@ footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
 # inflation radius for the obstacles
 inflation_radius: 0.55
 
-# observation sources
-observation_sources: laser_scan_sensor
-laser_scan_sensor: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+# observation sources (need to adjust obstacle height)
+observation_sources: zed_camera
+zed_camera: {sensor_frame: zed_camera_center, data_type: PointCloud2, topic: /zed/point_cloud/cloud_registered, marking: true, clearing: true, min_obstacle_height: 0.3, max_obstacle_height: 1.8, obstacle_range: 4}
